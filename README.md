@@ -6,15 +6,13 @@
 
 ### Tutor: Alejandro Leal Cruz (Enlace a su cuenta de gitHub)
 
-### Fecha de Inicio: DD-MM-YYYY
+### Fecha de Inicio: 08-03-2021
 
 ### Fecha de Finalización: DD-MM-YYYY
 
 ## Breve descripción del proyecto
 
-Si ya tienes una idea para tu aplicación, explícala brevemente. Si no es así, lo que realmente necesitas es **buscar un problema o necesidad a la que darle solución**, y estos **están por todas partes**. Así que trata de buscar problemas o necesidades en tu vida diaria y realiza una lista. Una vez que tengas una lista exhaustiva, ya puedes empezar a pensar en **cómo puedes resolverlos**.
-
-En este apartado el alumno debe hacer una breve descripción del proyecto que vaya a realizar. Esta descripción no será ua descripción detallada, será una presentación general con no más de 10 líneas.
+Esté broyecto se trata sobre una aplicación web a niven interno de la empresa que sirve para la administración del stock de una fábrica.
 
 ## Definir el objetivo de la aplicación
 

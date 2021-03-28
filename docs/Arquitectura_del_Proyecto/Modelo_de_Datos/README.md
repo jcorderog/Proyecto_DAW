@@ -12,7 +12,7 @@
 
 #### Modelo ER
 
-![alt text](./DiagramaER.png)
+![alt text](./DiagramaERCompleto.png)
 
 #### Modelo Relacional
 
