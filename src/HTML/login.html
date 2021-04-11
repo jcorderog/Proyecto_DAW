@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>LogIn</title>
+</head>
+<body>
+    <div class="">
+        <header class="w-100 d-flex sticky-top flex-wrap">
+            <h1 class="titulo col-8 col-md-5 col-lg-6 mt-4 p-0 mb-0 font-weight-bold text-center order-lg-1">FABRIENVAF</h1>
+            <div class="col-4 col-md-7 col-lg-2 d-flex flex-lg-row-reverse p-0 order-lg-3">
+                <div class="buttonAuth col-6 col-md-9 text-right  text-lg-left py-4 px-0">
+                    <button onclick="" class="LogIn btn mt-2 text-white" type="button">Log In</button>
+                    <button onclick="" class="LogOut d-none btn mt-2 text-white" type="button">Log Out</button>
+                </div>
+                <div class="col-6 col-md-3 py-4 px-0 w-100">
+                    <nav class="navbar navbar-expand-lg navbar-light w-100 px-0 py-auto">
+                        <button class="navbar-toggler m-auto p-0" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light w-100 px-0 py-0 col-lg-4 order-lg-2">
+                <div class="collapse navbar-collapse w-100 pb-3 p-lg-0" id="navbarText">
+                    <ul class="navbar-nav mr-auto mx-lg-auto text-center font-weight-bold">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#menu">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#especialidades">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#conocenos">Materiales</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="cuerpo my-4 mx-auto col-11 d-md-flex flex-wrap">
+            <img class="d-none d-md-block col-md-5" src="../Recursos/Bote Milagrito.jpg" alt="">
+            <div class="mensaje col-md-7 mt-lg-5">
+                <h2 class="text-center font-weight-bold my-4">INICIAR SESION</h2>
+                <form action="" class="border border-dark px-4 pt-4 col-lg-7 mx-lg-auto">
+                    <label for="username">USERNAME:</label>
+                    <input class="w-100" type="text" id="username">
+                    <label for="password">PASSWORD:</label>
+                    <input class="w-100" type="password" id="password">
+                    <div class="w-100 text-center">
+                        <button type="submit" class="btn text-white m-4">Iniciar</button>
+                        <button type="submit" class="btn text-white m-4">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer class="fixed-bottom">
+            <p class="text-center py-3 m-0">Fabrienvaf</p>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+          $('[data-toggle="popover"]').popover();
+        });
+    </script>
+</body>
+</html>
