@@ -1,29 +1,28 @@
 package nuca.fabrienvaf.web.dto;
 
-public class RegistroUsuarioDto {
-
+public class UsuarioRegistroDto {
 	private String nombre;
 	private String apellidos;
+	private String username;
 	private String email;
 	private String password;
-	private String username;
 	private String descripcion;
 	
-	public RegistroUsuarioDto(String nombre, String apellidos, String email, String password, String username,
+	public UsuarioRegistroDto() {
+		
+	}
+	
+	public UsuarioRegistroDto(String nombre, String apellidos, String username, String email, String password,
 			String descripcion) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
+		this.username = username;
 		this.email = email;
 		this.password = password;
-		this.username = username;
 		this.descripcion = descripcion;
 	}
 	
-	public RegistroUsuarioDto() {
-		
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -35,6 +34,12 @@ public class RegistroUsuarioDto {
 	}
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getEmail() {
 		return email;
@@ -48,18 +53,10 @@ public class RegistroUsuarioDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
 	public String getDescripcion() {
 		return descripcion;
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
 }

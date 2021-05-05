@@ -16,7 +16,7 @@ import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name="usuario", uniqueConstraints = @UniqueConstraint(columnNames = " email "))
+@Table(name="usuario", uniqueConstraints = @UniqueConstraint(columnNames = " username "))
 public class Usuario {
 	
 	@Id
@@ -39,7 +39,7 @@ public class Usuario {
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
-			name = "user_role",
+			name = "users_roles",
 			joinColumns = @JoinColumn(
 					name = "idUsuario", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(
@@ -47,6 +47,10 @@ public class Usuario {
 					)
 	private Collection<Rol> roles;
 
+	public Usuario() {
+		
+	}
+	
 	public Usuario(String nombre, String apellidos, String username, String password, String email, String descripcion,
 			Collection<Rol> roles) {
 		super();
