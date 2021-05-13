@@ -6,6 +6,7 @@ public class UsuarioRegistroDto {
 	private String username;
 	private String email;
 	private String password;
+	private Long roles;
 	private String descripcion;
 	
 	public UsuarioRegistroDto() {
@@ -13,13 +14,14 @@ public class UsuarioRegistroDto {
 	}
 	
 	public UsuarioRegistroDto(String nombre, String apellidos, String username, String email, String password,
-			String descripcion) {
+			Long roles, String descripcion) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.roles = roles;
 		this.descripcion = descripcion;
 	}
 	
@@ -58,5 +60,13 @@ public class UsuarioRegistroDto {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public Long getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Long roles) {
+		this.roles = roles;
 	}
 }

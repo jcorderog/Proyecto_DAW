@@ -1,7 +1,7 @@
 package nuca.fabrienvaf.service;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +31,12 @@ public class UsuarioServiceImpl implements UsuarioService{
 	}
 
 	@Override
-	public Usuario save(UsuarioRegistroDto registroDto) {
-		Usuario user = new Usuario(registroDto.getNombre(), registroDto.getApellidos(), registroDto.getUsername(),
-				passwordEncoder.encode(registroDto.getPassword()), registroDto.getEmail(), registroDto.getDescripcion(), Arrays.asList(new Rol("ROLE_USER","Rol de usuario")));
-		
+	public Usuario save(String nombre, String apellidos, String username, String password, String email, String descripcion,
+			Collection<Rol> roles) {
+		System.out.println(roles.toString());
+		Usuario user = new Usuario(nombre, apellidos, username,
+				passwordEncoder.encode(password), email, descripcion, roles);
+		System.out.println(user.getRoles().toString());
 		return usuarioRepository.save(user);
 	}
 
@@ -54,4 +56,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 		return roles.stream().map(rol -> new SimpleGrantedAuthority(rol.getName())).collect(Collectors.toList());
 	}
 	
+	public List<Usuario> findAll() {
+		return usuarioRepository.findAll();
+	}
 }

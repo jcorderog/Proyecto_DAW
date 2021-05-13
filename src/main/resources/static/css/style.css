@@ -2,6 +2,11 @@
 header, footer {
     background-color: #FFD4E1;
 }
+
+header a, header a:hover {
+	text-decoration: none;
+}
+
 .titulo, h2, .LogOut {
     color: #312B80;
 }

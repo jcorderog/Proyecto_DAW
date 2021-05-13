@@ -10,10 +10,10 @@
 <body>
     <div class="">
         <header class="w-100 d-flex sticky-top flex-wrap">
-            <h1 class="titulo col-8 col-md-5 col-lg-6 mt-4 p-0 mb-0 font-weight-bold text-center order-lg-1">FABRIENVAF</h1>
+            <h1 class="titulo col-8 col-md-5 col-lg-6 mt-4 p-0 mb-0 font-weight-bold text-center order-lg-1"><a th:href="@{/}">FABRIENVAF</a></h1>
             <div class="col-4 col-md-7 col-lg-2 d-flex flex-lg-row-reverse p-0 order-lg-3">
                 <div class="buttonAuth col-6 col-md-9 text-right  text-lg-left py-4 px-0">
-                    <button class="LogIn btn mt-2 text-white" type="button" th:onclick="@{/login}">Log In</button>
+                    <button class="LogIn btn text-white" type="button" th:url="@{/login}">Log In</button>
                     <button onclick="" class="LogOut d-none btn mt-2 text-white" type="button">Log Out</button>
                 </div>
                 <div class="col-6 col-md-3 py-4 px-0 w-100">
@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse w-100 pb-3 p-lg-0" id="navbarText">
                     <ul class="navbar-nav mr-auto mx-lg-auto text-center font-weight-bold display-1">
                         <li class="nav-item">
-                            <a class="nav-link" href="#menu">Usuarios</a>
+                            <a class="nav-link" th:href=@{/usuarios}>Usuarios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#especialidades">Productos</a>
@@ -41,7 +41,7 @@
             </nav>
         </header>
         <div class="cuerpo my-4 mx-auto col-11 d-md-flex flex-wrap">
-            <img class="d-none d-md-block col-md-5" src="../Recursos/Bote Milagrito.jpg" alt="">
+            <img class="d-none d-md-block col-md-5" src="img/Bote Milagrito.jpg" alt="">
             <div class="mensaje col-md-7">
                 <h2 class="text-center font-weight-bold my-4">BIENVENIDO</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eos, error impedit corrupti aperiam libero ad id nulla aliquid, fugit facilis perferendis odit aspernatur natus voluptates. Delectus molestias laudantium dolorum!
