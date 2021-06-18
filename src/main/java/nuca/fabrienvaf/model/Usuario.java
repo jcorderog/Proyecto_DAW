@@ -39,7 +39,7 @@ public class Usuario {
 		
 	private String descripcion;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name = "users_roles",
 			joinColumns = @JoinColumn(
@@ -131,4 +131,14 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Set<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Set<Producto> productos) {
+		this.productos = productos;
+	}
+	
+	
 }

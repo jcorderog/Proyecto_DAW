@@ -1,14 +1,20 @@
-
-header, footer {
+header,
+footer {
     background-color: #FFD4E1;
 }
 
-header a, header a:hover {
+.titulo a,
+h2
+ {
+    color: #312B80;
+}
+
+.titulo  a {
 	text-decoration: none;
 }
 
-.titulo, h2, .LogOut {
-    color: #312B80;
+.LogOut {
+	background-color:#312B80;
 }
 
 .LogIn {
@@ -19,6 +25,15 @@ li {
     font-size: 25px;
 }
 
-form button {
+form button, .boton {
     background-color: #BA007D;
+}
+
+.cuadrado {
+    float: left;
+    height: 300px;
+}
+
+.info {
+	font-size: 20px;
 }

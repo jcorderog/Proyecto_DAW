@@ -1,6 +1,7 @@
 package nuca.fabrienvaf.model;
 
 import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class Material {
 	
 	private String descripcion;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name = "material_producto",
 			joinColumns = @JoinColumn(
@@ -41,7 +42,9 @@ public class Material {
 			inverseJoinColumns = @JoinColumn(
 					name = "idProducto", referencedColumnName = "id")
 					)
-	private Collection<Producto> productos;
+	private Set<Producto> productos;
+	
+	private String imagen;
 	
 	public Material(Long id, String nombre, int cantidad, TipoMaterial tipoMaterial, String descripcion) {
 		super();
@@ -95,6 +98,23 @@ public class Material {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	public Set<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Set<Producto> productos) {
+		this.productos = productos;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+	
 	
 	
 }

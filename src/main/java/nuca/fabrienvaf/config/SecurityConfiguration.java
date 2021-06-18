@@ -42,11 +42,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers(
-				"/registration**",
 				"/js/**",
 				"/css/**",
 				"/img/**",
 				"/").permitAll()
+		.antMatchers("/registration").hasAnyAuthority("ADMIN")
+		.antMatchers("/productos/crear/**").hasAnyAuthority("ADMIN")
+		.antMatchers("/productos/eliminar/**").hasAnyAuthority("ADMIN")
+		.antMatchers("/productos/modificar/**").hasAnyAuthority("ADMIN")
+		.antMatchers("/materiales/crear/**").hasAnyAuthority("ADMIN")
+		.antMatchers("/materiales/eliminar/**").hasAnyAuthority("ADMIN")
+		.antMatchers("/materiales/modificar/**").hasAnyAuthority("ADMIN")
+		.antMatchers("/usuarios/eliminar/**").hasAnyAuthority("ADMIN")
+		.antMatchers("/usuarios/modificar/**").hasAnyAuthority("ADMIN")
+		.antMatchers("/productos").hasAnyAuthority("ADMIN", "USER")
+		.antMatchers("/usuarios").hasAnyAuthority("ADMIN", "USER")
+		.antMatchers("/materiales").hasAnyAuthority("ADMIN", "USER")
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()

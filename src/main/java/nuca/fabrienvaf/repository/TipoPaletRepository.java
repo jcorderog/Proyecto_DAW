@@ -7,5 +7,5 @@ import nuca.fabrienvaf.model.TipoPalet;
 
 @Repository
 public interface TipoPaletRepository extends JpaRepository<TipoPalet, Long>{
-
+	TipoPalet findByNombre(String nombre);
 }

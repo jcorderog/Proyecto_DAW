@@ -18,8 +18,5 @@ Un ejemplo sería el siguiente:
 - [Resultado de las pruebas y validaciones]()
  
 - [Manual de Usuario]().
-- [Manual de Administración]().
-- [Postmortem y conclusiones del proyecto]().
 
- 
 

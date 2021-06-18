@@ -41,9 +41,11 @@ public class Producto {
 	
 	@ManyToMany(mappedBy = "productos", cascade = CascadeType.PERSIST)
 	private Set<Material> materiales;
+	
+	private String imagen;
 
 	public Producto(String nombre, int cantidadPalets, int cantidadBotes, TipoProducto tipoProducto,
-			TipoPalet tipoPalet, Usuario usuario, Set<Material> materiales) {
+			TipoPalet tipoPalet, Usuario usuario, Set<Material> materiales, String imagen) {
 		super();
 		this.nombre = nombre;
 		this.cantidadPalets = cantidadPalets;
@@ -52,6 +54,7 @@ public class Producto {
 		this.tipoPalet = tipoPalet;
 		this.usuario = usuario;
 		this.materiales = materiales;
+		this.imagen = imagen;
 	}
 
 	public Producto() {
@@ -113,6 +116,23 @@ public class Producto {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public Set<Material> getMateriales() {
+		return materiales;
+	}
+
+	public void setMateriales(Set<Material> materiales) {
+		this.materiales = materiales;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+	
 	
 	
 }

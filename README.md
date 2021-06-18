@@ -8,28 +8,23 @@
 
 ### Fecha de Inicio: 08-03-2021
 
-### Fecha de Finalización: DD-MM-YYYY
+### Fecha de Finalización: 18-06-2021
+
+###Enlace de despliegue
+
+https://fabrienvaf.herokuapp.com
 
 ## Breve descripción del proyecto
 
-Esté broyecto se trata sobre una aplicación web a niven interno de la empresa que sirve para la administración del stock de una fábrica.
+Esté proyecto se trata sobre una aplicación web a niven interno de la empresa que sirve para la administración del stock de una fábrica.
 
 ## Definir el objetivo de la aplicación
 
-**Tener una gran idea** o encontrar un punto del mercado al que no se esté dando un producto o servicio es el punto de partida en cada nuevo proyecto. Antes de comenzar debes **definir claramente el propósito y la misión de la aplicación web**:
-
-- **¿Qué va a hacer la aplicación?**
-- **¿Cuál es su atractivo principal?**
-- **¿Qué problema concreto va a resolver?**
-- **¿Qué necesidad va a cubrir?**
+El objetivo de esta apliación es la administración del stock que tiene la empresa Fabrienvaf en sus fábricas.
 
 ## Prototipo de la Interfaz del proyecto
 
-En este apartado el alumno insertará la documentación del prototipo del proyecto (sketch, wireframe, mockup y un prototipo HTML y CSS)  que permite al cliente previsualizar el resultado final del producto que se está desarrollando.
-
-....
-....
-....
+Los archivos relativos a la documentación del proyecto se encuentran en l carpeta docs
 
 ## Estructura del Proyecto
 

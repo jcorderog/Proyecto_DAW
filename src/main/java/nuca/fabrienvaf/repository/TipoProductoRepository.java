@@ -7,5 +7,5 @@ import nuca.fabrienvaf.model.TipoProducto;
 
 @Repository
 public interface TipoProductoRepository extends JpaRepository<TipoProducto, Long>{
-
+	TipoProducto findByNombre(String nombre);
 }

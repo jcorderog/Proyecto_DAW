@@ -2,6 +2,7 @@ package nuca.fabrienvaf.service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import nuca.fabrienvaf.model.Producto;
 import nuca.fabrienvaf.model.Rol;
 import nuca.fabrienvaf.model.Usuario;
 import nuca.fabrienvaf.repository.UsuarioRepository;
@@ -58,5 +60,58 @@ public class UsuarioServiceImpl implements UsuarioService{
 	
 	public List<Usuario> findAll() {
 		return usuarioRepository.findAll();
+	}
+	
+	public Usuario findByUsername(String username) {
+		return usuarioRepository.findByUsername(username);
+	}
+
+	@Override
+	public void eliminarUsuario(Usuario u) {
+		if(u != null) {
+			Set<Producto> productos = u.getProductos();
+			for(Producto p : productos) {
+				p.setUsuario(null);
+			}
+
+			usuarioRepository.delete(u);
+		}
+		
+	}
+
+	@Override
+	public Usuario findById(Long id) {
+		
+		return usuarioRepository.findById(id).get();
+	}
+
+	@Override
+	public Usuario actualizar(Usuario u, String nombre, String apellidos, String password, String correo, String descripcion, String un) {
+		if(!nombre.equals("")) {
+			u.setNombre(nombre);
+		}
+		if(!apellidos.equals("")) {
+			u.setApellidos(apellidos);
+		}
+		if(!password.equals("")) {
+			u.setPassword(passwordEncoder.encode(password));
+		}
+		if(!un.equals("")) {
+			u.setUsername(un);
+		}
+		if(!descripcion.equals("")) {
+			u.setDescripcion(descripcion);
+		}
+		if(!correo.equals("")) {
+			u.setEmail(correo);
+		}
+		usuarioRepository.save(u);
+		return u;
+	}
+
+	@Override
+	public Usuario guardar(Usuario u) {
+		usuarioRepository.save(u);
+		return u;
 	}
 }

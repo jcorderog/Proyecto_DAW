@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+            integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../css/style.css">
+        <title>Materiales</title>
+        <link rel="shortcut icon" href="img/logo.gif">
+    </head>
+
+    <body>
+        <div class="">
+            <header class="w-100 d-flex sticky-top flex-wrap">
+            <h1 class="titulo col-8 col-md-5 col-lg-6 mt-4 p-0 mb-0 font-weight-bold text-center order-lg-1"><a th:href="@{/}">FABRIENVAF</a></h1>
+            <div class="col-4 col-md-7 col-lg-2 d-flex flex-lg-row-reverse p-0 order-lg-3">
+                <div class="buttonAuth col-6 col-md-9 text-right  text-lg-left py-4 px-0">
+                    <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="d-none d-sm-block"><button class="LogIn btn text-white" type="button">LogIn</button></a>
+                    <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="d-none d-sm-block"><button class="LogOut btn mt-2 text-white" type="button">LogOut</button></a>
+                </div>
+                <div class="col-6 col-md-3 py-4 px-0 w-100">
+                    <nav class="navbar navbar-expand-lg navbar-light w-100 px-0 py-auto">
+                        <button class="navbar-toggler m-auto p-0" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light w-100 px-0 py-0 col-lg-4 order-lg-2">
+                <div class="collapse navbar-collapse w-100 pb-3 p-lg-0" id="navbarText">
+                    <ul class="navbar-nav mr-auto mx-lg-auto text-center font-weight-bold display-1">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href=@{/usuarios}>Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href=@{/productos}>Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href=@{/materiales}>Materiales</a>
+                        </li>  
+                        <li class="nav-item">
+                            <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="d-sm-none"><button class="LogIn btn text-white" type="button">LogIn</button></a>
+                    		<a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="d-sm-none"><button class="LogOut btn mt-2 text-white" type="button">LogOut</button></a>
+                        </li> 
+                    </ul>
+                </div>
+            </nav>
+        </header>
+            <div class="cuerpo my-4 mx-auto col-11 d-md-flex flex-wrap">
+				<img class="d-none d-md-block col-md-5" src="../../img/Bote Milagrito.jpg" alt="">
+		        <div class="mensaje col-md-7 mt-lg-5">
+		            <h2 class="text-center font-weight-bold my-4">ACTUALIZAR MATERIAL</h2>
+		            <form enctype="multipart/form-data" th:action="@{'/materiales/modificar/'+${material.id}+'/submit'}" method="post" th:object="${material}"
+		                class="border border-dark px-4 pt-4 col-lg-7 mx-lg-auto">
+		                <label for="nombre">NOMBRE:</label>
+		                <input class="w-100" type="text" id="nombre" th:value="${material.nombre}" th:field="*{nombre}">
+		                <label for="descripcion">DESCRIPCIÓN:</label>
+                    	<input class="w-100 h-25" type="text" id="descripcion" th:value="${material.descripcion}" th:field="*{descripcion}">
+		                <label for="cantidadPalets">CANTIDAD:</label>
+		                <input class="w-100" type="text" id="cantidadPalets" th:value="${material.cantidad}" th:field="*{cantidad}">
+		                <label for="tipoPalet">TIPO MATERIAL:</label>
+		                <select class="w-100" id="tipoMaterial" th:field="*{tipoMaterial}">
+		                    <option th:each="tipoMaterial:${tiposMateriales}" th:selected="(${tipoMaterial.id} == ${material.tipoMaterial.id})" th:value="${tipoMaterial.id}" th:utext="${tipoMaterial.nombre}"></option>
+		                </select>
+		                <label for="imagen">IMAGEN:</label>
+	               	 	<input class="w-100" type="file" id="imagen" name="file">
+		                <div class="w-100 text-center">
+		                    <button type="submit" class="btn text-white m-4">Actualizar</button>
+		                    <button type="submit" class="btn text-white m-4">Reset</button>
+		                </div>
+		            </form>
+		        </div>
+	        </div>
+            <footer class="fixed-bottom">
+                <p class="text-center py-3 m-0">Fabrienvaf</p>
+            </footer>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('[data-toggle="popover"]').popover();
+            });
+        </script>
+    </body>
+
+</html>

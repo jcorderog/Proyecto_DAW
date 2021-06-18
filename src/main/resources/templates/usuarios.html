@@ -8,23 +8,21 @@
         integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Fabrienvaf</title>
+    <link rel="shortcut icon" href="img/logo.gif">
 </head>
 
 <body>
     <div class="">
         <header class="w-100 d-flex sticky-top flex-wrap">
-            <h1 class="titulo col-8 col-md-5 col-lg-6 mt-4 p-0 mb-0 font-weight-bold text-center order-lg-1">FABRIENVAF
-            </h1>
+            <h1 class="titulo col-8 col-md-5 col-lg-6 mt-4 p-0 mb-0 font-weight-bold text-center order-lg-1"><a th:href="@{/}">FABRIENVAF</a></h1>
             <div class="col-4 col-md-7 col-lg-2 d-flex flex-lg-row-reverse p-0 order-lg-3">
                 <div class="buttonAuth col-6 col-md-9 text-right  text-lg-left py-4 px-0">
-                    <button class="LogIn btn mt-2 text-white" type="button" th:onclick="@{/login}">Log In</button>
-                    <button onclick="" class="LogOut d-none btn mt-2 text-white" type="button">Log Out</button>
+                    <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="d-none d-sm-block"><button class="LogIn btn text-white" type="button">LogIn</button></a>
+                    <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="d-none d-sm-block"><button class="LogOut btn mt-2 text-white" type="button">LogOut</button></a>
                 </div>
                 <div class="col-6 col-md-3 py-4 px-0 w-100">
                     <nav class="navbar navbar-expand-lg navbar-light w-100 px-0 py-auto">
-                        <button class="navbar-toggler m-auto p-0" type="button" data-toggle="collapse"
-                            data-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-                            aria-label="Toggle navigation">
+                        <button class="navbar-toggler m-auto p-0" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </nav>
@@ -34,39 +32,52 @@
                 <div class="collapse navbar-collapse w-100 pb-3 p-lg-0" id="navbarText">
                     <ul class="navbar-nav mr-auto mx-lg-auto text-center font-weight-bold display-1">
                         <li class="nav-item">
-                            <a class="nav-link" href="#menu">Usuarios</a>
+                            <a class="nav-link" th:href=@{/usuarios}>Usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#especialidades">Productos</a>
+                            <a class="nav-link" th:href=@{/productos}>Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#conocenos">Materiales</a>
-                        </li>
+                            <a class="nav-link" th:href=@{/materiales}>Materiales</a>
+                        </li>  
+                        <li class="nav-item">
+                            <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="d-sm-none"><button class="LogIn btn text-white" type="button">LogIn</button></a>
+                    		<a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="d-sm-none"><button class="LogOut btn mt-2 text-white" type="button">LogOut</button></a>
+                        </li> 
                     </ul>
                 </div>
             </nav>
         </header>
         <div class="cuerpo my-4 mx-auto col-11 d-md-flex flex-wrap">
             <h2>Usuarios:</h2>
+            <a th:href=@{/registration} class="ml-5"><input class="btn boton text-white" type="button" name="crearUsuario" id="crearUsuario" value="Crear Usuario"></a>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
+                        <th class="d-none d-sm-table-cell">Nombre</th>
+                        <th class="d-none d-lg-table-cell">Apellidos</th>
                         <th>Username</th>
-                        <th>Email</th>
-                        <th>Descripción</th>
+                        <th class="d-none d-sm-table-cell">Email</th>
+                        <th class="d-none d-md-table-cell">Descripción</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="usuario : ${usuarioList}"
                         th:style="${usuarioStat.odd}? 'background-color: rgb(255, 172, 234);':'background-color: white'"
                         th:alt-title="${usuarioStat.even}? 'even' : 'odd'">
-                        <td th:text="${usuario.nombre}" name="nombre"></td>
-                        <td th:text="${usuario.apellidos}" name="apellidos"></td>
+                        <td th:text="${usuario.nombre}" name="nombre"  class="d-none d-sm-table-cell"></td>
+                        <td th:text="${usuario.apellidos}" name="apellidos" class="d-none d-lg-table-cell"></td>
                         <td th:text="${usuario.username}" name="username"></td>
-                        <td th:text="${usuario.email}" name="email"></td>
-                        <td th:text="${usuario.descripcion}" name="descripcion"></td>
+                        <td th:text="${usuario.email}" name="email" class="d-none d-sm-table-cell"></td>
+                        <td th:text="${usuario.descripcion}" name="descripcion" class="d-none d-md-table-cell"></td>
+                        <td>
+                        	<a th:href="@{'/usuarios/modificar/' + ${usuario.username}}">
+		               			<button class="btn text-white boton my-1" type="submit" onclick="return confirm('¿Seguro que quieres modificar este usuario?');" >Modificar Usuario</button>
+		               		</a>
+		               		<a th:href="@{'/usuarios/eliminar/' + ${usuario.username}}">
+		               			<button class="btn text-white boton my-1" type="submit" onclick="return confirm('¿Seguro que quieres eliminar este usuario?');" >Eliminar Usuario</button>
+		               		</a>
+		               	</td>
                     </tr>
                 </tbody>
             </table>

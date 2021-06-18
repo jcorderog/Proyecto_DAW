@@ -7,5 +7,5 @@ import nuca.fabrienvaf.model.TipoMaterial;
 
 @Repository
 public interface TipoMaterialRepository extends JpaRepository<TipoMaterial, Long>{
-
+	TipoMaterial findByNombre(String name);
 }
